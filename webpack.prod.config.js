@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-import serverConfig from '../config/server-config.json';
+const serverConfig = require('./config/server-config.json');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -79,10 +79,10 @@ module.exports = [
 	{
 		name: 'server',
 		target: 'node',
-		entry: './server/server.js',
+		entry: './server/modules/index.js',
 		output: {
 			path: path.join(__dirname, 'static'),
-			filename: 'server.js',
+			filename: 'modules.js',
 			libraryTarget: 'commonjs2',
 			publicPath: publicPath,
 		},

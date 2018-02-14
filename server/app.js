@@ -11,8 +11,11 @@ if (IS_DEV) {
 }
 
 if (IS_PROD) {
-  const modules = require('./modules');
-  app.use(modules());
+  app.use('/static', express.static(path.join(__dirname, '..', 'static')));
+  const ServerRendererPath = path.join(__dirname, '../static/modules.js');
+  const ServerRenderer = require(ServerRendererPath).default;
+
+  app.use(ServerRenderer());
 }
 
 initHandlers(app);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { renderToString } from 'react-dom/server';
+import ReactDOMServer from 'react-dom/server';
 import StaticRouter from 'react-router-dom/StaticRouter';
 import { matchRoutes, renderRoutes } from 'react-router-config';
 
@@ -27,7 +27,7 @@ export default () => {
 	      return res.redirect(302, context.url);
 	    }
 	    let context = {};
-	    const content = renderToString(
+	    const content = ReactDOMServer.renderToString(
 	      <Provider store={store}>
 	         <StaticRouter location={req.url} context={context}>
 	           {renderRoutes(routes)}
