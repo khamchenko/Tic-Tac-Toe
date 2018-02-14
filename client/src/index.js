@@ -1,5 +1,5 @@
 import React from 'react';
-import { hydrate } from 'react-dom';
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
 import 'bootstrap-grid/dist/grid.min.css';
@@ -20,7 +20,7 @@ const { dispatch } = store;
 dispatch(ConnectClientWS());
 
 const renderApp = (Component, appRoutes) => {
-  hydrate(
+  render(
     <Provider store={store}>
       <Component routes={appRoutes}/>
     </Provider>, rootReact

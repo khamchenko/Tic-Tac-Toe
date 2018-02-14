@@ -64,11 +64,6 @@ module.exports = [
 			new CleanWebpackPlugin([path.resolve(__dirname, './static')], {
 	      root: path.resolve(__dirname),
 	    }),
-			new webpack.DefinePlugin({
-				'process.env': {
-					NODE_ENV: 'development'
-				},
-			}),
 			new webpack.optimize.UglifyJsPlugin({
 				compress: {
 					warnings: false,
