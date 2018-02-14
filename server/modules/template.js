@@ -13,7 +13,7 @@ export default ({ content, initialState }) => {
          <script type="text/javascript">
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
         </script>
-        <script type="text/javascript" src="/static/app.js"></script>
+        <script type="text/javascript" src="/static/app.js" async></script>
       </body>
       </html>
   `;
