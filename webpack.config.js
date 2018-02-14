@@ -19,6 +19,11 @@ module.exports = {
 	},
 	devtool: 'inline-source-map',
   plugins: [
+		new webpack.DefinePlugin({
+			'process.env': {
+				NODE_ENV: 'production'
+			},
+		}),
 		new CleanWebpackPlugin([path.resolve(__dirname, './build')], {
       root: path.resolve(__dirname),
     }),
@@ -29,9 +34,6 @@ module.exports = {
 		new webpack.NamedModulesPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoEmitOnErrorsPlugin(),
-		new webpack.DefinePlugin({
-      __DEV__: JSON.stringify(!process.env.ENV),
-    }),
 	],
   resolve: {
    	modules: [path.resolve(__dirname, './client/src'), 'node_modules'],

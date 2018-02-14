@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const serverConfig = require('./config/server-config.json');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 var publicPath = `http://localhost:${serverConfig.port}/static`;
@@ -60,11 +61,13 @@ module.exports = [
 			],
 		},
 		plugins: [
+			new CleanWebpackPlugin([path.resolve(__dirname, './static')], {
+	      root: path.resolve(__dirname),
+	    }),
 			new webpack.DefinePlugin({
 				'process.env': {
-					NODE_ENV: 'production'
+					NODE_ENV: 'development'
 				},
-				__DEV__: JSON.stringify(!process.env.ENV),
 			}),
 			new webpack.optimize.UglifyJsPlugin({
 				compress: {

@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import 'bootstrap-grid/dist/grid.min.css';
 
 import createStore from './redux/store/createStore';
+import { IS_DEV } from '../utils/env';
 
 import App from './App';
 import routes from './routes';
@@ -28,7 +29,9 @@ const renderApp = (Component, appRoutes) => {
 
 renderApp(App, routes);
 
-if (__DEV__ && module.hot) {
+console.log();
+
+if ( IS_DEV && module.hot) {
   module.hot.accept('./App', () => {
     import('./App').then(({ default: NextApp }) => {
       renderApp(NextApp, routes);
