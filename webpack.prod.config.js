@@ -35,25 +35,9 @@ module.exports = [
 					]
 				},
 				{
-					test: /\.(scss|css)$/,
-					use: [
-						{
-							loader: 'style-loader',
-						},
-						{
-							loader: 'css-loader',
-							options: {
-								modules: true,
-								importLoaders: 1,
-								localIdentName: '[hash:base64:10]',
-								sourceMap: true
-							}
-						},
-						{
-							loader: 'sass-loader'
-						}
-					]
-				},
+	        test: /\.(css|scss)$/,
+	        use: [ 'style-loader', 'css-loader','sass-loader'],
+	      },
 				{
 					test: /\.(gif|png|jpg|jpeg|svg)$/,
 					use: 'url-loader?limit=10000&name=assets/[name]-[hash].[ext]',
@@ -101,25 +85,13 @@ module.exports = [
 					]
 				},
 				{
-					test: /\.(scss|css)$/,
-					use: ExtractTextPlugin.extract({
-						fallback: "isomorphic-style-loader",
-						use: [
-							{
-								loader: 'css-loader',
-								options: {
-									modules: true,
-									importLoaders: 1,
-									localIdentName: '[hash:base64:10]',
-									sourceMap: true
-								}
-							},
-							{
-								loader: 'sass-loader'
-							}
-						]
-					})
-				},
+	        test: /\.(css|scss)$/,
+	        use: ExtractTextPlugin.extract({
+	            publicPath: path.join(__dirname, 'static'),
+	            fallback: 'style-loader',
+	            use: ['css-loader','sass-loader'],
+	        }),
+	      },
 				{
 					test: /\.(gif|png|jpg|jpeg|svg)$/,
 					use: 'url-loader?limit=10000&name=assets/[name]-[hash].[ext]',
