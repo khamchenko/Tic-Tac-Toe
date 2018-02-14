@@ -6,7 +6,7 @@
   "scripts": {
     "server:dev": "nodemon --exec babel-node ./server/server",
     "client:dev": "cross-env NODE_ENV=development babel-node client/devServer",
-    "start": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "start": "concurrently \"npm run server:dev\" \"npm run client:dev\""
   },
   "author": "Dmitry Khamchenko",
   "license": "ISC",
