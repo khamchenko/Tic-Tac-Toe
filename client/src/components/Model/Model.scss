@@ -1,0 +1,23 @@
+.row-table{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  .cell {
+    position: relative;
+    height: 0;
+    padding-bottom: calc(100%/4);
+    width: calc( 100% / 4);
+    border-radius: 10px;
+    background: #039883;
+    margin: 10px;
+    .cell-elem {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

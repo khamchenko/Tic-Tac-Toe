@@ -1,0 +1,11 @@
+.ElementX-root{
+  .ElementX-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .icon{
+      width: 70%;
+      height: 70%;
+    }
+  }
+}

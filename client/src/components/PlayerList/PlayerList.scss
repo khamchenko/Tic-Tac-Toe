@@ -1,0 +1,11 @@
+.player-list-wrapper {
+  position: relative;
+  .player-wrapper{
+    height: 150px;
+    display: flex;
+  }
+  .title-wrapper{
+    text-align: center;
+    font-size: 1.5em;
+  }
+}

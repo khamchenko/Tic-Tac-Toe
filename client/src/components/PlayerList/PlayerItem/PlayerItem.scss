@@ -1,0 +1,36 @@
+.player-root{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  text-align: center;
+  .player{
+    font-size: 1.5em;
+  }
+  .win{
+    font-size: 4em;
+  }
+  .name{
+    font-size: 2em;
+    margin: 5px 0;
+  }
+  .loader-player{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    .icon{
+      width: 100px;
+      height: 100px;
+      animation: icon-spin infinite 5s linear;
+    }
+    @keyframes icon-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+    }
+  }
+}
