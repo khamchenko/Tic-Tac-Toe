@@ -15,7 +15,7 @@ class PlayerList extends Component {
             GameStatistics.map((elem, i) => {
               let player = elem.player == 1 ? GameInfo.player_1_name : GameInfo.player_2_name;
               return (
-                <PlayerItem key={elem.player} player={player} win={elem.win} numPlayer={elem.player}/>
+                <PlayerItem key={elem.player} player={player} win={elem.win} numPlayer={elem.player} right_of_play={GameInfo.right_of_play}/>
               )
             })
           }

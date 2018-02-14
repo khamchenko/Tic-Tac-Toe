@@ -7,14 +7,23 @@
   align-items: center;
   text-align: center;
   .player{
+    margin: 5px 0;
     font-size: 1.5em;
   }
   .win{
-    font-size: 4em;
+    font-size: 2em;
   }
   .name{
     font-size: 2em;
     margin: 5px 0;
+  }
+  .active{
+    font: 1.7em Arial, sans-serif;
+    text-shadow: #2139e2 0 0 8px;
+  }
+  .activeWin{
+    font: 3em Arial, sans-serif;
+    text-shadow: #2139e2 0 0 8px;
   }
   .loader-player{
     position: absolute;

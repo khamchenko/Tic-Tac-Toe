@@ -5,15 +5,17 @@ import './PlayerItem.scss';
 
 export default class PlayerItem extends Component {
 	render() {
-		const { win, player , numPlayer} = this.props;
+		const { win, player , numPlayer, right_of_play} = this.props;
 		var NamePlayer =  player ? player : null
+		let active = right_of_play == (numPlayer - 1) ? false : true
+		console.log(numPlayer);
 		return (
-			<div className="player-root">
+			<div className="player-root active">
 				{ NamePlayer &&
 					<div>
-						<div className="player">Player: {numPlayer}</div>
-						<div className="name">{NamePlayer}</div>
-						<div className="win">{win}</div>
+						<div className={active ? "player active" : "player"}>Player: {numPlayer}</div>
+						<div className={active ? "name active" : "name"}>{NamePlayer}</div>
+						<div className={active ? "win activeWin" : "win"}>{win}</div>
 					</div>
 				}
 				{
