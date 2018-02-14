@@ -8,7 +8,8 @@
     "client:dev": "cross-env NODE_ENV=development babel-node client/devServer",
     "start": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
     "build:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js --progress --profile --colors",
-    "server:prod": "cross-env NODE_ENV=production babel-node ./server/server"
+    "server:prod": "cross-env NODE_ENV=production babel-node ./server/server",
+    "start": "cross-env NODE_ENV=production babel-node ./server/server"
   },
   "author": "Dmitry Khamchenko",
   "license": "ISC",
