@@ -41,7 +41,7 @@ export default (io, socket, connections, GamesRoom, GamesField, GamesStatistics,
     })
     GamesField.forEach((elem, i) => {
       if ( socket.playersID == elem.GameID ) { elemGameField = elem }
-      if(GameID == elem.GameID) { indexUpdateGameField = i }
+      if( GameID == elem.GameID) { indexUpdateGameField = i }
     })
     GamesStatistics.forEach((elem, i) => {
       if ( socket.playersID == elem.GameID ) { elemGameStatistics = elem }

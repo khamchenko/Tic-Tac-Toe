@@ -1,12 +1,11 @@
+import newPlayer from './Player/newPlayer.js';
+
 export default (io, socket, connections, GamesRoom, GamesField, GamesStatistics, GamesMessages, GamesPlayers) => {
   socket.on('start_game', (data) => {
 
     var index = connections.indexOf(socket);
 
-    var Player = {
-      playersID: connections[index].playersID,
-      NamePlayer: data.NamePlayer
-    }
+    var Player = newPlayer(socket, index, connections, data);
 
     var GameRoom = {
       GameID: connections[index].playersID,

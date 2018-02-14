@@ -1,4 +1,5 @@
 import CheckWin from './check-win';
+import search from './Search/Search';
 
 export default (io, socket, connections, GamesRoom, GamesField, GamesStatistics) => {
   socket.on('update_game_field', (data) => {
@@ -8,8 +9,6 @@ export default (io, socket, connections, GamesRoom, GamesField, GamesStatistics)
 
     var GameID = '';
     var IndexGame = '';
-    var indexUpdateGameField = ''
-    var indexUpdateStatistic = ''
     var UpdateGameField = '';
     var PlayerGameElement = '';
     var RightOfPlay = '';
@@ -32,8 +31,11 @@ export default (io, socket, connections, GamesRoom, GamesField, GamesStatistics)
 
     if (RightOfPlay) {
 
-      GamesField.forEach((elem, i) => { if(GameID == elem.GameID) { indexUpdateGameField = i }})
-      GamesStatistics.forEach((elem, i) => { if(GameID == elem.GameID) { indexUpdateStatistic = i }})
+      var GameField = search(GameID, GamesField);
+      var indexUpdateGameField = GameField.index;
+
+      var GameStatistics = search(GameID, GamesStatistics);
+      var indexUpdateStatistic = GameStatistics.index;
 
       UpdateGameField = GamesField[indexUpdateGameField].GameField.map((elem, i) => {
         if ( i == data.i ) {

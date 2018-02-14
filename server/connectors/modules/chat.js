@@ -1,3 +1,5 @@
+import search from './Search/Search';
+
 export default (io, socket, connections, GamesRoom, GamesMessages) => {
   socket.on('new_game_message', (data) => {
 
@@ -14,8 +16,12 @@ export default (io, socket, connections, GamesRoom, GamesMessages) => {
         IndexGame = i;
       }
     })
-
-    GamesMessages.forEach((elem, i) => { if(GameID == elem.GameID) { indexMessageChat = i }})
+    console.log(GameID);
+    console.log(GamesMessages);
+    var Messages = search(GameID, GamesMessages);
+    console.log(Messages);
+    var indexMessageChat = Messages.index;
+    console.log(indexMessageChat);
 
     var message = {
       message: data.message,
@@ -25,7 +31,7 @@ export default (io, socket, connections, GamesRoom, GamesMessages) => {
     };
 
     (GamesMessages[indexMessageChat].GameMessages).push(message)
-    
+
     io.to(GameID).emit('new_game_message', message);
   })
 }
