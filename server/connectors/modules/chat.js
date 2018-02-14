@@ -16,12 +16,9 @@ export default (io, socket, connections, GamesRoom, GamesMessages) => {
         IndexGame = i;
       }
     })
-    console.log(GameID);
-    console.log(GamesMessages);
+
     var Messages = search(GameID, GamesMessages);
-    console.log(Messages);
     var indexMessageChat = Messages.index;
-    console.log(indexMessageChat);
 
     var message = {
       message: data.message,
