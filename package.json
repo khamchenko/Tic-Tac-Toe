@@ -6,6 +6,7 @@
   "scripts": {
     "server:dev": "nodemon --exec babel-node ./server/server",
     "client:dev": "cross-env NODE_ENV=development babel-node client/devServer",
+    "start": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
     "build:prod": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js --progress --profile --colors",
     "server:prod": "cross-env NODE_ENV=production babel-node ./server/server"
   },
@@ -43,6 +44,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "clean-webpack-plugin": "^0.1.18",
+    "concurrently": "^3.5.1",
     "css-loader": "^0.28.9",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^2.30.1",
